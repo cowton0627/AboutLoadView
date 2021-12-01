@@ -13,6 +13,11 @@
 		9122F20F2757715300325880 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9122F20D2757715300325880 /* Main.storyboard */; };
 		9122F2112757715900325880 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9122F2102757715900325880 /* Assets.xcassets */; };
 		9122F2142757715900325880 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9122F2122757715900325880 /* LaunchScreen.storyboard */; };
+		9122F21C275774DF00325880 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9122F21B275774DF00325880 /* MyTextField.swift */; };
+		9122F21E2757766300325880 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9122F21D2757766300325880 /* MyView.swift */; };
+		9122F22027577B7600325880 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9122F21F27577B7500325880 /* MyButton.swift */; };
+		9122F2D62757840C00325880 /* HasCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9122F2D52757840C00325880 /* HasCustomView.swift */; };
+		9122F2DB2757858500325880 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9122F2DA2757858500325880 /* MyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		9122F2102757715900325880 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9122F2132757715900325880 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9122F2152757715900325880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9122F21B275774DF00325880 /* MyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
+		9122F21D2757766300325880 /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
+		9122F21F27577B7500325880 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		9122F2D52757840C00325880 /* HasCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasCustomView.swift; sourceTree = "<group>"; };
+		9122F2DA2757858500325880 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,52 @@
 		9122F2062757715300325880 /* AboutLoadView */ = {
 			isa = PBXGroup;
 			children = (
+				9122F2D72757841400325880 /* Protocol */,
+				9122F2D82757845500325880 /* CustomView */,
+				9122F2DC275785EE00325880 /* CustomViewController */,
+				9122F2D92757846D00325880 /* Controller */,
 				9122F2072757715300325880 /* AppDelegate.swift */,
 				9122F2092757715300325880 /* SceneDelegate.swift */,
-				9122F20B2757715300325880 /* ViewController.swift */,
 				9122F20D2757715300325880 /* Main.storyboard */,
 				9122F2102757715900325880 /* Assets.xcassets */,
 				9122F2122757715900325880 /* LaunchScreen.storyboard */,
 				9122F2152757715900325880 /* Info.plist */,
 			);
 			path = AboutLoadView;
+			sourceTree = "<group>";
+		};
+		9122F2D72757841400325880 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9122F2D52757840C00325880 /* HasCustomView.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		9122F2D82757845500325880 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				9122F21D2757766300325880 /* MyView.swift */,
+				9122F21F27577B7500325880 /* MyButton.swift */,
+				9122F21B275774DF00325880 /* MyTextField.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		9122F2D92757846D00325880 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9122F20B2757715300325880 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9122F2DC275785EE00325880 /* CustomViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9122F2DA2757858500325880 /* MyViewController.swift */,
+			);
+			path = CustomViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +187,12 @@
 			files = (
 				9122F20C2757715300325880 /* ViewController.swift in Sources */,
 				9122F2082757715300325880 /* AppDelegate.swift in Sources */,
+				9122F21E2757766300325880 /* MyView.swift in Sources */,
+				9122F2D62757840C00325880 /* HasCustomView.swift in Sources */,
 				9122F20A2757715300325880 /* SceneDelegate.swift in Sources */,
+				9122F21C275774DF00325880 /* MyTextField.swift in Sources */,
+				9122F2DB2757858500325880 /* MyViewController.swift in Sources */,
+				9122F22027577B7600325880 /* MyButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
