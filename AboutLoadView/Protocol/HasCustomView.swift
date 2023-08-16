@@ -12,12 +12,14 @@ public protocol HasCustomView {
     associatedtype CustomView: UIView
 }
 
-// 當遵從協議的是UIViewController, 下面這個才會滿足 / 才能調用
+// 當遵從協議的是 UIViewController，下面的程式碼才能滿足。
 extension HasCustomView where Self: UIViewController {
     /// UIViewController 的自定義 view。
     public var customView: CustomView {
         guard let customView = view as? CustomView else {
-            fatalError("Expected view to be of type \(CustomView.self) but got \(type(of: view)) instead")
+            fatalError("""
+            Expected view to be of type \(CustomView.self) but got \(type(of: view)) instead
+            """)
         }
         return customView
     }

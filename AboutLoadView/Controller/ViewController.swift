@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController, HasCustomView {
-    typealias CustomView = MyView
+    typealias CustomView = CombineView
     
 //    private let myView: UIView = {
 //        let view = UIView(frame: CGRect(x: UIScreen.main.bounds.width/2 - 100, y: UIScreen.main.bounds.height/2 - 225, width: 200, height: 200))
@@ -39,23 +39,25 @@ class ViewController: UIViewController, HasCustomView {
 //        return view as! MyView
 //    }
     
-//    override func loadView() {
-//        let myView = MyView()
-//        myView.myButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-//        view = myView
-//    }
+    override func loadView() {
+        let customView = CustomView()
+        view = customView
+//        customView.myButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        setupViews()
         
-        let customView = CustomView()
-        customView.myButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        view = customView
-        customView.render()
-        
-        
+//        let customView = CustomView()
+//        customView.myButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+//        view = customView
+//        customView.render()
     }
+    
+//    @objc func buttonTapped() {
+//        print("Hello Swift!")
+//    }
     
 //    private func setupViews() {
 //        view.backgroundColor = .systemGreen
@@ -76,11 +78,7 @@ class ViewController: UIViewController, HasCustomView {
 //        myButton.layer.cornerRadius = 20
 //        myButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
 //    }
-
-    @objc func buttonTapped() {
-        print("Hello Swift!")
-    }
-
+    
 //    private func setupImageView() {
 //        view.addSubview(imageView)
 //    }
