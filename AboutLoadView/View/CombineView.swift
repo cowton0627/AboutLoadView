@@ -1,5 +1,5 @@
 //
-//  MyView.swift
+//  CombineView.swift
 //  AboutLoadView
 //
 //  Created by Chun-Li Cheng on 2021/12/1.
@@ -7,35 +7,36 @@
 
 import UIKit
 
-class MyView: UIView {
+class CombineView: UIView {
     
-    let myView: UIView = {
+    let grayView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .systemGray
         return view
     }()
+        
+    let imageView: UIImageView = {
+        let imgView = UIImageView()
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        imgView.image = UIImage(systemName: "pencil")
+        return imgView
+    }()
+
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Description"
+        return label
+    }()
     
-    let myButton: UIButton = {
+    let tapMeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemBlue
         return button
     }()
-    
-    let imageView: UIImageView = {
-         let view = UIImageView()
-         view.translatesAutoresizingMaskIntoConstraints = false
-         view.image = UIImage(systemName: "pencil")
-         return view
-     }()
 
-     let descriptionLabel: UILabel = {
-         let label = UILabel()
-         label.translatesAutoresizingMaskIntoConstraints = false
-         label.text = "description"
-         return label
-     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -49,43 +50,51 @@ class MyView: UIView {
     
     func setupView() {
         backgroundColor = .systemGreen
-        addSubview(myView)
-        addSubview(myButton)
+        addSubview(grayView)
         addSubview(imageView)
         addSubview(descriptionLabel)
-        
+        addSubview(tapMeButton)
+
         NSLayoutConstraint.activate([
-            myView.widthAnchor.constraint(equalToConstant: 200),
-            myView.heightAnchor.constraint(equalTo: myView.widthAnchor),
-            myView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UIScreen.main.bounds.width/2 - 100),
-            myView.topAnchor.constraint(equalTo: topAnchor, constant: UIScreen.main.bounds.height/2 - 225),
+            grayView.widthAnchor.constraint(equalToConstant: 200),
+            grayView.heightAnchor.constraint(equalTo: grayView.widthAnchor),
+            grayView.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                              constant: UIScreen.main.bounds.width/2 - 100),
+            grayView.topAnchor.constraint(equalTo: topAnchor,
+                                          constant: UIScreen.main.bounds.height/2 - 225),
             
-            myButton.widthAnchor.constraint(equalToConstant: 200),
-            myButton.heightAnchor.constraint(equalToConstant: 40),
-            myButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: UIScreen.main.bounds.width/2 - 100),
-            myButton.topAnchor.constraint(equalTo: topAnchor, constant: UIScreen.main.bounds.height/2 + 100),
+            tapMeButton.widthAnchor.constraint(equalToConstant: 200),
+            tapMeButton.heightAnchor.constraint(equalToConstant: 40),
+            tapMeButton.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                                 constant: UIScreen.main.bounds.width/2 - 100),
+            tapMeButton.topAnchor.constraint(equalTo: topAnchor,
+                                             constant: UIScreen.main.bounds.height/2 + 100),
             
             imageView.widthAnchor.constraint(equalToConstant: 24),
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            imageView.trailingAnchor.constraint(equalTo: descriptionLabel.leadingAnchor,
+                                                constant: -12),
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            descriptionLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 12),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
-            descriptionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
+//            descriptionLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor,
+//                                                      constant: 12),
+            descriptionLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            descriptionLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+//            descriptionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+//            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16)
         ])
         
-        myButton.setTitle("Tap Me", for: .normal)
-        myButton.layer.cornerRadius = 20
-//        myButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        tapMeButton.setTitle("Tap Me", for: .normal)
+        tapMeButton.layer.cornerRadius = 20
+        tapMeButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
-//    @objc func buttonTapped() {
-//        print("Hello Swift!")
-//    }
+    @objc func buttonTapped() {
+        print("Hello Swift!")
+    }
     
     override func draw(_ rect: CGRect) {
+        // 等腰藍色三角形
 //        let path = UIBezierPath()
 //        var point = CGPoint(x: 10, y: 10)
 //        path.move(to: point)
@@ -100,12 +109,11 @@ class MyView: UIView {
         let bodyPath = UIBezierPath()
         bodyPath.move(to: CGPoint(x: 170, y: 70))
         bodyPath.addQuadCurve(to: CGPoint(x: 234, y: 70), controlPoint: CGPoint(x: 202, y: 55))
-        bodyPath.addLine(to: CGPoint(x: 269, y: 110
-        ))
+        bodyPath.addLine(to: CGPoint(x: 269, y: 110))
         bodyPath.addQuadCurve(to: CGPoint(x: 253, y: 180), controlPoint: CGPoint(x: 280, y: 153))
         bodyPath.addLine(to: CGPoint(x: 152, y: 180))
         bodyPath.addQuadCurve(to: CGPoint(x: 135, y: 110), controlPoint: CGPoint(x: 125, y: 153))
-        bodyPath.close()
+//        bodyPath.close()
         //右耳
         let rightEarPath = UIBezierPath(ovalIn: CGRect(x: 98, y: 41, width: 74, height: 69))
         bodyPath.append(rightEarPath)
@@ -125,7 +133,7 @@ class MyView: UIView {
         facePath.addQuadCurve(to: CGPoint(x: 253, y: 148), controlPoint: CGPoint(x: 238, y: 70))
         facePath.addQuadCurve(to: CGPoint(x: 253, y: 180), controlPoint: CGPoint(x: 273, y: 145))
         facePath.addQuadCurve(to: CGPoint(x: 152, y: 180), controlPoint: CGPoint(x: 203, y: 210))
-        facePath.close()
+//        facePath.close()
         let faceLayer = CAShapeLayer()
         faceLayer.fillColor = CGColor(srgbRed: 254/255, green: 218/255, blue: 195/255, alpha: 1)
         faceLayer.path = facePath.cgPath
@@ -148,8 +156,33 @@ class MyView: UIView {
         blushLayer.fillColor = CGColor(srgbRed: 244/255, green: 173/255, blue: 171/255, alpha: 1)
         blushLayer.path = blushLeft.cgPath
         layer.addSublayer(blushLayer)
+        
+        // 左獠牙
+        let leftFangPath = UIBezierPath()
+        leftFangPath.move(to: CGPoint(x: 185, y: 170)) // 起始點，你可以根據需要調整
+        leftFangPath.addLine(to: CGPoint(x: 195, y: 175)) // 獠牙的長度，你可以根據需要調整
+        leftFangPath.addLine(to: CGPoint(x: 130, y: 185)) // 創建一個小的寬度，你可以根據需要調整
+        leftFangPath.close()
 
+        // 右獠牙
+        let rightFangPath = UIBezierPath()
+        rightFangPath.move(to: CGPoint(x: 217, y: 170)) // 起始點，你可以根據需要調整
+        rightFangPath.addLine(to: CGPoint(x: 209, y: 175)) // 獠牙的長度，你可以根據需要調整
+        rightFangPath.addLine(to: CGPoint(x: 274, y: 185)) // 創建一個小的寬度，你可以根據需要調整
+        rightFangPath.close()
+
+        // 添加到圖層
+        let leftFangLayer = CAShapeLayer()
+        leftFangLayer.fillColor = UIColor.black.cgColor.copy(alpha: 0.4)
+        leftFangLayer.path = leftFangPath.cgPath
+        layer.addSublayer(leftFangLayer)
+
+        let rightFangLayer = CAShapeLayer()
+        rightFangLayer.fillColor = UIColor.black.cgColor.copy(alpha: 0.4)
+        rightFangLayer.path = rightFangPath.cgPath
+        layer.addSublayer(rightFangLayer)
     }
+    
     
     func render() {
         

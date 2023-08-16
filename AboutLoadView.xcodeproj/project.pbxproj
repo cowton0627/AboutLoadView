@@ -81,14 +81,6 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		9122F2D82757845500325880 /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
-				9122F21D2757766300325880 /* CombineView.swift */,
-			);
-			path = CustomView;
-			sourceTree = "<group>";
-		};
 		9122F2D92757846D00325880 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,7 +92,7 @@
 		91C024CA283C75D40027DB4F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9122F2D82757845500325880 /* CustomView */,
+				9122F21D2757766300325880 /* CombineView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
